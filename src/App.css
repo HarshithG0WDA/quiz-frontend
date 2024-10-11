@@ -1,0 +1,111 @@
+
+body {
+  background-color: #fdfdfd; 
+  color: #212529;
+  font-family: 'Roboto', sans-serif; 
+  margin: 0;
+  padding: 0; 
+  height: 100vh;
+}
+
+
+.main-container {
+  background-color: #ffffff; 
+  margin: 20px auto; 
+  padding: 40px; 
+  border-radius: 12px;
+  max-width: 800px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); 
+  display: flex; 
+  flex-direction: column;
+  align-items: center; 
+}
+
+
+.navbar {
+  display: flex !important; 
+  justify-content: space-between !important; 
+  align-items: center !important; 
+  background-color: #343a40 !important;
+  margin-bottom: 20px !important;
+  padding: 0 20px !important; 
+}
+
+.navbar .nav-link {
+  color: #ffffff !important;
+  transition: color 0.3s !important; 
+}
+
+.navbar .nav-link:hover {
+  color: #bb86fc !important; 
+}
+
+.sign-in {
+  margin-left: auto !important; 
+  padding-left: 15px !important; 
+}
+
+
+.navbar-brand,
+.nav-link {
+  color: #ffffff !important; 
+  transition: color 0.3s; 
+}
+
+.navbar-brand:hover,
+.nav-link:hover {
+  color: #bb86fc !important; 
+}
+
+.navbar .nav-link {
+  margin-right: 15px; 
+}
+
+.sign-in {
+  margin-left: auto; 
+  padding-left: 15px; 
+}
+
+.btn {
+  background-color: #007bff; 
+  color: #ffffff; 
+  border: none; 
+  border-radius: 5px; 
+  padding: 10px 20px; 
+  transition: background-color 0.3s; 
+}
+
+.btn:hover {
+  background-color: #0056b3; 
+}
+
+
+input[type="text"],
+input[type="checkbox"] {
+  background-color: #ffffff; 
+  color: #212529; 
+  border: 1px solid #ced4da; 
+  border-radius: 4px; 
+  padding: 10px; 
+  width: 100%; 
+  margin-bottom: 20px; 
+  transition: border-color 0.3s; 
+}
+
+input[type="text"]:focus {
+  border-color: #80bdff;
+  outline: none; 
+}
+
+
+h2, h3, h4 {
+  color: #343a40; 
+  text-align: center; 
+  margin: 10px 0; 
+}
+
+
+p {
+  line-height: 1.6; 
+  text-align: center; 
+}

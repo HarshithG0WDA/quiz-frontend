@@ -1,0 +1,40 @@
+
+.form-container {
+    max-width: 600px; 
+    margin: auto; 
+    padding: 20px; 
+    background-color: white; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+  }
+  
+  
+  .question-input {
+    width: 100%; 
+    margin-bottom: 20px; 
+  }
+  
+  .option-input {
+    width: calc(100% - 30px); 
+    margin-right: 10px;
+  }
+  
+  .custom-checkbox {
+    width: 16px; 
+    height: 16px; 
+    margin-left: 10px;
+  }
+  
+ 
+  .submit-btn {
+    display: block; 
+    margin: 20px auto 0; 
+  }
+  
+ 
+  .input-group {
+    display: flex; 
+    align-items: center; 
+    margin-bottom: 15px; 
+  }
+  
