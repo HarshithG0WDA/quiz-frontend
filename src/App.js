@@ -5,21 +5,24 @@ import NavigationBar from './Components/NavigationBar';
 import CheckboxInputForm from './Components/CheckboxInputForm'; 
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import ViewQuestions from './Components/ViewQuestions';
-import Home from './Components/Home';
-import About from './Components/About';
+
+import Hero from './Components/Hero';
 import UpdateQuestions from './Components/UpdateQuestions';
 
 function App() {
   return (
     <BrowserRouter>
-      <NavigationBar title="QUIZ APP" />
+      <NavigationBar/>
+      <div className='container'>
       <Routes>
-        <Route path='/home' element={<Home />} />
+        <Route path='/' element={<Hero/>} />
         <Route path='/viewquestion' element={<ViewQuestions />} /> 
         <Route path='/addquestion' element={<CheckboxInputForm />} />
-        <Route path='/about' element={<About />} />
+        <Route path='/about' element={<Hero/>} />
         <Route path='/updatequestions' element={<UpdateQuestions />} />
       </Routes>
+
+      </div>
     </BrowserRouter>
   );
 }

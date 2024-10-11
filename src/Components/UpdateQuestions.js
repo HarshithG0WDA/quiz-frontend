@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import './UpdateQuestions.css'; 
+ 
 
 const UpdateQuestions = () => {
     const [questions, setQuestions] = useState([]);
@@ -26,8 +26,7 @@ const UpdateQuestions = () => {
         console.log('Selected question uuid:', question.question_id);
         setSelectedQuestion(question);
         setQuestionText(question.title);
-
-        // Set answers based on selected question
+    
         setAnswers(question.answer.map(ans => ({
             text: ans.answer,
             is_correct: ans.is_correct
@@ -115,13 +114,17 @@ const UpdateQuestions = () => {
     };
 
     return (
-        <div className="update-questions-container">
-            <h2>Update Questions</h2>
+        <div className="max-w-[800px] mx-auto p-4 flex-1">
+            <h2 className="text-2xl font-bold mb-4 text-center">Update Questions</h2>
             <div>
-                <h4>Select a Question to Update</h4>
-                <ul className="questions-list">
+                <h4 className="text-xl mb-2 text-center">Select a Question to Update</h4>
+                <ul className="questions-list mb-4 flex flex-col">
                     {questions.map((question) => (
-                        <li key={question.question_id} onClick={() => handleQuestionSelect(question)}>
+                        <li 
+                            key={question.question_id} 
+                            onClick={() => handleQuestionSelect(question)} 
+                            className="cursor-pointer hover:bg-[#00df9a] text-white transition duration-200 p-2 rounded-lg border border-gray-300 mb-2"
+                        >
                             {question.title}
                         </li>
                     ))}
@@ -129,41 +132,43 @@ const UpdateQuestions = () => {
             </div>
 
             {selectedQuestion && (
-                <form onSubmit={handleUpdateQuestion} className="update-form">
-                    <div>
-                        <label>Question:</label>
+                <form onSubmit={handleUpdateQuestion} className="bg-black rounded-lg shadow-lg p-6 mt-4">
+                    <div className="mb-4">
+                        <label className="font-bold">Question:</label>
                         <input
                             type="text"
                             value={questionText}
                             onChange={(e) => setQuestionText(e.target.value)}
                             required
-                            className="question-input"
+                            className="w-full p-2 border bg-black border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-[#00df9a]"
                         />
                     </div>
 
-                    <div>
-                        <h4>Answers:</h4>
+                    <div className="mb-4">
+                        <h4 className="text-xl mb-2 bg-black">Answers:</h4>
                         {answers.map((answer, index) => (
-                            <div key={index} className="answer-item">
+                            <div key={index} className="flex items-center mb-2">
                                 <input
                                     type="text"
                                     value={answer.text}
                                     onChange={(e) => handleAnswerChange(index, e.target.value)}
                                     required
-                                    className="answer-input"
+                                    className="w-full p-2 border bg-black border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-[#00df9a]"
                                 />
-                                <input
-                                    type="checkbox"
-                                    checked={answer.is_correct}
-                                    onChange={() => handleCorrectToggle(index)}
-                                    className="correct-checkbox"
-                                />
+                                <div className="ml-2 text-black">
+                                    <input
+                                        type="checkbox"
+                                        checked={answer.is_correct}
+                                        onChange={() => handleCorrectToggle(index)}
+                                        className="h-5 w-5 text-[#00df9a] rounded border-gray-300 focus:ring-[#00df9a]"
+                                    />
+                                </div>
                             </div>
                         ))}
                     </div>
 
-                    <button type="submit" className="update-button">Update Question</button>
-                    <button type="button" onClick={handleDeleteQuestion} className="delete-button">Delete Question</button>
+                    <button type="submit" className="bg-[#00df9a] w-full rounded-md font-medium py-3 text-black hover:bg-[#00bf8a] transition duration-300 mb-2">Update Question</button>
+                    <button type="button" onClick={handleDeleteQuestion} className="bg-red-500 w-full rounded-md font-medium py-3 text-white hover:bg-red-600 transition duration-300">Delete Question</button>
                 </form>
             )}
         </div>

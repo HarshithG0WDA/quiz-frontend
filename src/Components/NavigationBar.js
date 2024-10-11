@@ -1,23 +1,22 @@
 import React from 'react';
-import { Navbar, Nav, Button } from 'react-bootstrap'; 
-import '../App.css'; 
+import './Navbar.css'; 
+import logo from '../assets/logo.webp'; 
 
 const NavigationBar = () => {
   return (
-    <Navbar bg="dark" variant="dark" expand="lg" className="navbar">
-      <Navbar.Brand href="/">QuizApp</Navbar.Brand>
-      <Navbar.Toggle aria-controls="basic-navbar-nav" />
-      <Navbar.Collapse id="basic-navbar-nav">
-        <Nav className="me-auto"> 
-
-          <Nav.Link href="/viewquestion">View Question</Nav.Link>
-          <Nav.Link href="/addquestion">Add Question</Nav.Link>
-          <Nav.Link href="/updatequestions">Update Questions</Nav.Link>
-          <Nav.Link href="/about">About</Nav.Link>
-        </Nav>
-        <Button className="sign-in" variant="primary">Sign In</Button> 
-      </Navbar.Collapse>
-    </Navbar>
+    <nav className='navbar'>
+      <div className='navbar-brand'>
+        <img src={logo} alt="QuizApp Logo" className='logo' /> 
+        
+      </div>
+      <ul className='nav-links'>
+        <li><a href="/viewquestion">View Questions</a></li>
+        <li><a href="/addquestion">Add Questions</a></li>
+        <li><a href="/updatequestions">Modify Questions</a></li>
+        <li><a href="/about">About</a></li>
+      </ul>
+      <button className='btn sign-in'>Sign In</button>
+    </nav>
   );
 };
 

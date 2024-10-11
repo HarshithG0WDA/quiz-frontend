@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import './Checkbox.css';
 
 export default function CheckboxInputForm() {  
   const [question, setQuestion] = useState('');
@@ -27,7 +26,6 @@ export default function CheckboxInputForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-
     const answers = options.map((option) => ({
       answer: option.text,
       is_correct: option.isCorrect,
@@ -41,7 +39,6 @@ export default function CheckboxInputForm() {
     };
 
     try {
-      
       const response = await fetch('http://localhost:8000/api/questions/create/', {  
         method: "POST",
         headers: {
@@ -52,7 +49,6 @@ export default function CheckboxInputForm() {
 
       if (response.ok) {
         console.log("Question created successfully");
-        
         resetForm();
       } else {
         console.error("Error creating question:", response.statusText);
@@ -73,12 +69,14 @@ export default function CheckboxInputForm() {
   };
 
   return (
-    <div className="form-container">
-      <form onSubmit={handleSubmit}>
-        <div className="form-group">
+    <div className="w-[700px] mx-auto p-4"> 
+      <form onSubmit={handleSubmit} className="bg-white rounded-lg shadow-lg p-6">
+        <h2 className="text-2xl font-bold mb-4 text-center">Create a Question</h2>
+        
+        <div className="mb-4">
           <textarea
             id="questionInput"
-            className="form-control question-input"
+            className="form-control w-full h-24 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-[#00df9a]"
             rows="3"
             placeholder="Enter the question here"
             value={question}
@@ -87,16 +85,16 @@ export default function CheckboxInputForm() {
         </div>
 
         {options.map((option, index) => (
-          <div className="form-group" key={index}>
-            <div className="input-group">
+          <div className="mb-4" key={index}>
+            <div className="flex items-center">
               <input
                 type="text"
-                className="form-control option-input"
+                className="form-control w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-[#00df9a]"
                 placeholder={`Option ${index + 1}`}
                 value={option.text}
                 onChange={(e) => handleOptionChange(index, e.target.value)}
               />
-              <div className="input-group-append">
+              <div className="ml-2">
                 <input
                   type="checkbox"
                   className="custom-checkbox"
@@ -108,7 +106,7 @@ export default function CheckboxInputForm() {
           </div>
         ))}
 
-        <button type="submit" className="btn btn-primary submit-btn">Submit</button>
+        <button type="submit" className="bg-[#00df9a] w-full rounded-md font-medium py-3 text-black hover:bg-[#00bf8a] transition duration-300">Submit</button>
       </form>
     </div>
   );
