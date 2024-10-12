@@ -10,12 +10,12 @@ const NavigationBar = () => {
         
       </div>
       <ul className='nav-links'>
-        <li><a href="/viewquestion">View Questions</a></li>
-        <li><a href="/addquestion">Add Questions</a></li>
-        <li><a href="/updatequestions">Modify Questions</a></li>
-        <li><a href="/about">About</a></li>
+        <li className = 'font-semibold'><a href="/about">Home</a></li>
+        <li className='font-semibold'><a href="/viewquestion">View Questions</a></li>
+        <li className='font-semibold'><a href="/addquestion">Add Questions</a></li>
+        <li className='font-semibold'><a href="/updatequestions">Modify Questions</a></li>
       </ul>
-      <button className='btn sign-in'>Sign In</button>
+      <button className='btn sign-in font-bold'>Sign In</button>
     </nav>
   );
 };

@@ -70,13 +70,13 @@ export default function CheckboxInputForm() {
 
   return (
     <div className="w-[700px] mx-auto p-4"> 
-      <form onSubmit={handleSubmit} className="bg-white rounded-lg shadow-lg p-6">
+      <form onSubmit={handleSubmit} className="bg-black rounded-lg shadow-lg p-6">
         <h2 className="text-2xl font-bold mb-4 text-center">Create a Question</h2>
         
         <div className="mb-4">
           <textarea
             id="questionInput"
-            className="form-control w-full h-24 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-[#00df9a]"
+            className="form-control w-full h-24 p-2 border bg-black text-white border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-[#00df9a] placeholder-white"
             rows="3"
             placeholder="Enter the question here"
             value={question}
@@ -89,7 +89,7 @@ export default function CheckboxInputForm() {
             <div className="flex items-center">
               <input
                 type="text"
-                className="form-control w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-[#00df9a]"
+                className="form-control w-full p-2 border bg-black text-white border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-[#00df9a] placeholder-white"
                 placeholder={`Option ${index + 1}`}
                 value={option.text}
                 onChange={(e) => handleOptionChange(index, e.target.value)}
